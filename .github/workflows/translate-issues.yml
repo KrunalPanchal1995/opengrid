@@ -1,0 +1,17 @@
+name: Translate Issues
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check and Translate
+        uses: actions-cool/issues-translator@v1
+        with:
+          # Automatically translates non-English issues to English
+          # Or you can configure specific target languages here
+          target-language: 'en' 
+          github-token: ${{ secrets.GITHUB_TOKEN }}
